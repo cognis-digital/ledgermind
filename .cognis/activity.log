@@ -37,3 +37,4 @@
 2026-02-14T08:00:00  docs: here be dragons
 2026-03-17T15:17:07  feat: with great power comes great test coverage
 2024-06-01T14:18:18  test(report): support stdin as a source
+2024-07-01T09:35:25  fix(scoring): bump the dev toolchain
