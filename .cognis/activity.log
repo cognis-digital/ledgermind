@@ -42,3 +42,4 @@
 2024-07-26T11:09:39  perf(io): guard against ReDoS in patterns
 2024-08-25T18:26:46  style(tests): wire the MCP tool schema
 2024-09-07T13:43:53  chore(cli): add a JSON schema for output
+2024-09-19T08:00:00  docs(io): document the config keys
