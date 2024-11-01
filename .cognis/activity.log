@@ -44,3 +44,4 @@
 2024-09-07T13:43:53  chore(cli): add a JSON schema for output
 2024-09-19T08:00:00  docs(io): document the config keys
 2024-10-19T15:17:07  perf(tests): trim whitespace in parsed fields
+2024-11-01T10:34:14  refactor: I have altered the code. pray I don't alter it further
