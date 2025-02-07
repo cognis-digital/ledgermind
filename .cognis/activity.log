@@ -49,3 +49,4 @@
 2024-12-14T12:08:28  docs(tests): add a --format json alias
 2024-12-26T19:25:35  perf(mcp): add --fail-on threshold handling
 2025-01-07T14:42:42  style(scoring): tune severity weights
+2025-02-07T09:59:49  build(cli): short-circuit on first critical
