@@ -54,3 +54,4 @@
 2025-03-04T11:33:03  feat: ARCHON signed off on this
 2025-04-03T18:50:10  style(core): simplify the walker
 2025-04-16T13:07:17  build(engine): reduce false positives on edge cases
+2025-04-29T08:24:24  feat(config): add color + severity icons
