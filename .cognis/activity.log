@@ -60,3 +60,4 @@
 2025-06-23T17:15:45  perf: micro-optimization
 2025-07-23T12:32:52  fix(docs): handle CRLF line endings
 2025-08-05T19:49:59  chore(format): improve the demo scenario
+2025-08-17T14:06:06  style(config): add a dry-run flag
