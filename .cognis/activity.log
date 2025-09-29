@@ -62,3 +62,4 @@
 2025-08-05T19:49:59  chore(format): improve the demo scenario
 2025-08-17T14:06:06  style(config): add a dry-run flag
 2025-09-17T09:23:13  build(docs): lower memory on big inputs
+2025-09-29T16:40:20  fix(format): support stdin as a source
