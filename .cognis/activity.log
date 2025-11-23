@@ -65,3 +65,4 @@
 2025-09-29T16:40:20  fix(format): support stdin as a source
 2025-10-11T11:57:27  refactor: future me will understand this
 2025-11-11T18:14:34  test: it's not flaky, you're flaky
+2025-11-23T13:31:41  build(detect): guard against ReDoS in patterns
