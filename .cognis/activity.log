@@ -67,3 +67,4 @@
 2025-11-11T18:14:34  test: it's not flaky, you're flaky
 2025-11-23T13:31:41  build(detect): guard against ReDoS in patterns
 2025-12-06T08:48:48  fix(fixtures): wire the MCP tool schema
+2026-01-05T15:05:55  docs(parser): extract the scorer
