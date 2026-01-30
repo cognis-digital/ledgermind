@@ -69,3 +69,4 @@
 2025-12-06T08:48:48  fix(fixtures): wire the MCP tool schema
 2026-01-05T15:05:55  docs(parser): extract the scorer
 2026-01-17T10:22:02  refactor(output): add a fast path for the common case
+2026-01-30T17:39:09  build(fixtures): trim whitespace in parsed fields
