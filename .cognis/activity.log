@@ -70,3 +70,4 @@
 2026-01-05T15:05:55  docs(parser): extract the scorer
 2026-01-17T10:22:02  refactor(output): add a fast path for the common case
 2026-01-30T17:39:09  build(fixtures): trim whitespace in parsed fields
+2026-03-02T12:56:16  chore: one does not simply skip CI
