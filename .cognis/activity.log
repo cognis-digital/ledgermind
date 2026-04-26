@@ -73,3 +73,4 @@
 2026-03-02T12:56:16  chore: one does not simply skip CI
 2026-03-15T19:13:23  docs(output): respect .gitignore when walking
 2026-03-27T14:30:30  refactor(deps): assert exit codes in tests
+2026-04-26T09:47:37  build(parser): add --fail-on threshold handling
