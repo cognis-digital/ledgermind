@@ -1,33 +1,11 @@
-"""LEDGERMIND - Local LLM cost & token forensics with anomaly detection.
-
-A zero-dependency, standard-library-only engine that ingests LLM request
-logs (JSONL), computes per-model / per-key cost & token accounting, and
-flags anomalous spend using robust statistics (median absolute deviation).
-
-Spiritual cousin of litellm's cost tracking, but offline-first and forensic:
-it answers "who spent what, and which calls look suspicious?"
-"""
-from .core import (
-    PRICING,
-    PricedCall,
-    LedgerReport,
-    price_call,
-    load_events,
-    build_report,
-    detect_anomalies,
-)
-
-TOOL_NAME = "ledgermind"
-TOOL_VERSION = "1.0.0"
-
-__all__ = [
-    "TOOL_NAME",
-    "TOOL_VERSION",
-    "PRICING",
-    "PricedCall",
-    "LedgerReport",
-    "price_call",
-    "load_events",
-    "build_report",
-    "detect_anomalies",
-]
+"""ledgermind — part of the Cognis Neural Suite."""
+try:  # re-export the tool's public API + identity from core
+    from ledgermind.core import *  # noqa: F401,F403
+except Exception:  # pragma: no cover
+    pass
+try:
+    from ledgermind.core import TOOL_NAME, TOOL_VERSION
+except Exception:  # pragma: no cover
+    TOOL_NAME = "ledgermind"
+    TOOL_VERSION = "0.1.0"
+__version__ = TOOL_VERSION
