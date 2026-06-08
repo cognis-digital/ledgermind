@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: { name: ledgermind, labels: { app: ledgermind } }
+spec:
+  replicas: 1
+  selector: { matchLabels: { app: ledgermind } }
+  template:
+    metadata: { labels: { app: ledgermind } }
+    spec:
+      containers:
+        - name: ledgermind
+          image: ghcr.io/cognis-digital/ledgermind:latest
+          ports: [{ containerPort: 8000 }]
+          resources:
+            requests: { cpu: "50m", memory: "64Mi" }
+            limits: { cpu: "500m", memory: "256Mi" }
+---
+apiVersion: v1
+kind: Service
+metadata: { name: ledgermind }
+spec:
+  selector: { app: ledgermind }
+  ports: [{ port: 80, targetPort: 8000 }]
