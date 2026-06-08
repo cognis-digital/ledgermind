@@ -1,0 +1,10 @@
+{
+  "name": "@cognis/ledgermind",
+  "version": "0.2.0",
+  "description": "JavaScript port of ledgermind (Cognis Neural Suite)",
+  "bin": {
+    "ledgermind": "index.js"
+  },
+  "license": "LicenseRef-COCL-1.0",
+  "type": "module"
+}
