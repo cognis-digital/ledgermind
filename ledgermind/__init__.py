@@ -1,11 +1,33 @@
-"""
-LEDGERMIND — Local LLM cost & token forensics proxy with anomaly detection
-Part of the Cognis Neural Suite by Cognis Digital.
-https://cognis.digital · MIT License
-"""
-from ledgermind.core import scan, TOOL_NAME, TOOL_VERSION
+"""LEDGERMIND - Local LLM cost & token forensics with anomaly detection.
 
-__version__ = TOOL_VERSION
-__author__ = "Cognis Digital"
-__license__ = "MIT"
-__all__ = ["scan", "TOOL_NAME", "TOOL_VERSION", "__version__"]
+A zero-dependency, standard-library-only engine that ingests LLM request
+logs (JSONL), computes per-model / per-key cost & token accounting, and
+flags anomalous spend using robust statistics (median absolute deviation).
+
+Spiritual cousin of litellm's cost tracking, but offline-first and forensic:
+it answers "who spent what, and which calls look suspicious?"
+"""
+from .core import (
+    PRICING,
+    PricedCall,
+    LedgerReport,
+    price_call,
+    load_events,
+    build_report,
+    detect_anomalies,
+)
+
+TOOL_NAME = "ledgermind"
+TOOL_VERSION = "1.0.0"
+
+__all__ = [
+    "TOOL_NAME",
+    "TOOL_VERSION",
+    "PRICING",
+    "PricedCall",
+    "LedgerReport",
+    "price_call",
+    "load_events",
+    "build_report",
+    "detect_anomalies",
+]

@@ -1,0 +1,12 @@
+{"timestamp": "2026-06-01T09:12:03Z", "model": "gpt-4o-mini", "api_key": "team-frontend", "prompt_tokens": 820, "completion_tokens": 240}
+{"timestamp": "2026-06-01T09:15:44Z", "model": "gpt-4o-mini", "api_key": "team-frontend", "prompt_tokens": 910, "completion_tokens": 310}
+{"timestamp": "2026-06-01T10:02:11Z", "model": "claude-3-5-sonnet", "api_key": "team-rag", "usage": {"input_tokens": 4200, "output_tokens": 680}}
+{"timestamp": "2026-06-01T10:05:50Z", "model": "claude-3-5-sonnet", "api_key": "team-rag", "usage": {"input_tokens": 3800, "output_tokens": 720}}
+{"timestamp": "2026-06-01T11:20:00Z", "model": "gpt-4o", "api_key": "team-analytics", "prompt_tokens": 2600, "completion_tokens": 540}
+{"timestamp": "2026-06-01T11:48:30Z", "model": "gpt-4o", "api_key": "team-analytics", "prompt_tokens": 3100, "completion_tokens": 610}
+{"timestamp": "2026-06-01T12:01:09Z", "model": "gpt-4o-mini", "api_key": "team-frontend", "prompt_tokens": 760, "completion_tokens": 200}
+{"timestamp": "2026-06-01T12:33:17Z", "model": "claude-3-5-sonnet", "api_key": "team-rag", "usage": {"input_tokens": 5100, "output_tokens": 900}}
+{"timestamp": "2026-06-01T13:10:55Z", "model": "gpt-4o-mini", "api_key": "team-frontend", "prompt_tokens": 880, "completion_tokens": 260}
+{"timestamp": "2026-06-01T14:00:02Z", "model": "gpt-4o", "api_key": "team-analytics", "prompt_tokens": 2900, "completion_tokens": 580}
+{"timestamp": "2026-06-01T15:22:41Z", "model": "claude-3-haiku", "api_key": "team-frontend", "prompt_tokens": 1200, "completion_tokens": 340}
+{"timestamp": "2026-06-01T16:47:19Z", "model": "claude-3-opus", "api_key": "svc-batch-77", "prompt_tokens": 120000, "completion_tokens": 40000}
