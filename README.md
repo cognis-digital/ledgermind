@@ -16,7 +16,7 @@
 </div>
 
 ```bash
-pip install cognis-ledgermind
+pip install "git+https://github.com/cognis-digital/ledgermind.git"
 ledgermind scan .            # → prioritized findings in seconds
 ```
 
@@ -49,7 +49,7 @@ Local LLM cost & token forensics proxy with anomaly detection — without standi
 ## Quick start
 
 ```bash
-pip install cognis-ledgermind
+pip install "git+https://github.com/cognis-digital/ledgermind.git"
 ledgermind --version
 ledgermind scan .                       # scan current project
 ledgermind scan . --format json         # machine-readable
