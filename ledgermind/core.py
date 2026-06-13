@@ -7,7 +7,6 @@ rate so accounting is never silently dropped.
 from __future__ import annotations
 
 import json
-import math
 from dataclasses import dataclass, field, asdict
 from typing import Any, Dict, Iterable, List, Optional, Tuple
 
