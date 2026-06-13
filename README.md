@@ -20,6 +20,12 @@ pip install "git+https://github.com/cognis-digital/ledgermind.git"
 ledgermind scan .            # → prioritized findings in seconds
 ```
 
+<!-- cognis:layman:start -->
+## What is this?
+
+LedgerMind is a tool that tracks how much money you are spending on AI language model (LLM) services by reading your API request logs. You point it at a log file, and it breaks down the cost per model and per API key, flags any unusually expensive or runaway requests, and prints a clear summary. It runs entirely on your own computer with no accounts or cloud services needed, making it easy to audit AI spending in a CI pipeline or from the command line.
+<!-- cognis:layman:end -->
+
 ## Contents
 
 - [Why ledgermind?](#why) · [Features](#features) · [Quick start](#quick-start) · [Example](#example) · [Architecture](#architecture) · [AI stack](#ai-stack) · [How it compares](#how-it-compares) · [Integrations](#integrations) · [Install anywhere](#install-anywhere) · [Related](#related) · [Contributing](#contributing)
@@ -46,6 +52,42 @@ Local LLM cost & token forensics proxy with anomaly detection — without standi
 <div align="right"><a href="#top">↑ back to top</a></div>
 
 <a name="quick-start"></a>
+<!-- cognis:install:start -->
+## Install
+
+`ledgermind` is source-available (not published to PyPI) — every method below installs
+straight from GitHub. Pick whichever you prefer; the one-line scripts auto-detect
+the best tool available on your machine.
+
+**One-liner (Linux / macOS):**
+```sh
+curl -fsSL https://raw.githubusercontent.com/cognis-digital/ledgermind/HEAD/install.sh | sh
+```
+
+**One-liner (Windows PowerShell):**
+```powershell
+irm https://raw.githubusercontent.com/cognis-digital/ledgermind/HEAD/install.ps1 | iex
+```
+
+**Or install manually — any one of:**
+```sh
+pipx install "git+https://github.com/cognis-digital/ledgermind.git"     # isolated (recommended)
+uv tool install "git+https://github.com/cognis-digital/ledgermind.git"  # uv
+pip install "git+https://github.com/cognis-digital/ledgermind.git"      # pip
+```
+
+**From source:**
+```sh
+git clone https://github.com/cognis-digital/ledgermind.git
+cd ledgermind && pip install .
+```
+
+Then run:
+```sh
+ledgermind --help
+```
+<!-- cognis:install:end -->
+
 ## Quick start
 
 ```bash
