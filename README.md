@@ -20,6 +20,32 @@ pip install cognis-ledgermind
 ledgermind scan .            # → prioritized findings in seconds
 ```
 
+## Usage — step by step
+
+1. **Install** (Python 3.8+, stdlib only):
+   ```bash
+   pip install ledgermind
+   ```
+2. **Audit an LLM request log** (JSONL or JSON array) for cost, tokens, and anomalies:
+   ```bash
+   ledgermind audit logs.jsonl
+   ```
+   Reports totals plus cost-by-model and cost-by-API-key breakdowns.
+3. **Override pricing** and tune anomaly sensitivity:
+   ```bash
+   ledgermind audit logs.jsonl --pricing custom_pricing.json --mad-threshold 3.0
+   ```
+   (`--pricing` is merged over the built-in defaults; `--mad-threshold` is the modified z-score cutoff.)
+4. **Read the output as JSON**:
+   ```bash
+   ledgermind audit logs.jsonl --format json | jq '.total_cost_usd, .anomalies[]'
+   ```
+5. **Gate CI / cron** on spend anomalies — exit `2` when any anomaly is detected:
+   ```bash
+   ledgermind audit logs.jsonl --fail-on-anomaly || echo "LLM spend anomaly detected"
+   ```
+
+
 ## Contents
 
 - [Why ledgermind?](#why) · [Features](#features) · [Quick start](#quick-start) · [Example](#example) · [Architecture](#architecture) · [AI stack](#ai-stack) · [How it compares](#how-it-compares) · [Integrations](#integrations) · [Install anywhere](#install-anywhere) · [Related](#related) · [Contributing](#contributing)
