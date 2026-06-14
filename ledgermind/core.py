@@ -116,7 +116,10 @@ def price_call(
 
     priced_model = model if model in pricing else "_default"
     rates = pricing.get(priced_model, pricing.get("_default", {"input": 0.0, "output": 0.0}))
-    cost = (prompt / 1000.0) * rates["input"] + (completion / 1000.0) * rates["output"]
+    # Use .get() with fallback so a malformed custom pricing entry never raises KeyError.
+    in_rate = float(rates.get("input", 0.0)) if isinstance(rates, dict) else 0.0
+    out_rate = float(rates.get("output", 0.0)) if isinstance(rates, dict) else 0.0
+    cost = (prompt / 1000.0) * in_rate + (completion / 1000.0) * out_rate
 
     return PricedCall(
         index=index,
@@ -137,7 +140,13 @@ def load_events(path: str) -> Tuple[List[Dict[str, Any]], List[str]]:
 
     Returns (events, warnings). Malformed lines are skipped with a warning
     rather than aborting the whole run.
+
+    Raises:
+        ValueError: if *path* is empty or not a string.
+        OSError: if the file cannot be opened (caller should handle).
     """
+    if not isinstance(path, str) or not path.strip():
+        raise ValueError("log file path must be a non-empty string")
     warnings: List[str] = []
     with open(path, "r", encoding="utf-8") as fh:
         raw = fh.read()
@@ -191,7 +200,14 @@ def detect_anomalies(
     A call is anomalous if its cost's modified z-score exceeds mad_threshold,
     or its completion-to-prompt token ratio is a severe outlier (runaway
     generation). Mutates the PricedCall objects in place. Returns the count.
+
+    Raises:
+        ValueError: if *mad_threshold* is not a positive finite number.
     """
+    if not isinstance(mad_threshold, (int, float)) or mad_threshold <= 0 or mad_threshold != mad_threshold:
+        raise ValueError(
+            f"mad_threshold must be a positive number, got {mad_threshold!r}"
+        )
     if len(calls) < min_samples:
         return 0
 

@@ -22,6 +22,23 @@ def _load_pricing(path: str) -> dict:
         data = json.load(fh)
     if not isinstance(data, dict):
         raise ValueError("pricing file must be a JSON object")
+    # Validate each entry: must be a dict with numeric "input" and "output".
+    for model_key, entry in data.items():
+        if not isinstance(entry, dict):
+            raise ValueError(
+                f"pricing entry {model_key!r} must be a JSON object with "
+                f'"input" and "output" keys, got {type(entry).__name__}'
+            )
+        for rate_key in ("input", "output"):
+            if rate_key not in entry:
+                raise ValueError(
+                    f"pricing entry {model_key!r} is missing required key {rate_key!r}"
+                )
+            if not isinstance(entry[rate_key], (int, float)):
+                raise ValueError(
+                    f"pricing entry {model_key!r}[{rate_key!r}] must be a number, "
+                    f"got {type(entry[rate_key]).__name__!r}"
+                )
     merged = dict(PRICING)
     merged.update(data)
     if "_default" not in merged:
@@ -132,6 +149,13 @@ def main(argv: Optional[List[str]] = None) -> int:
         parser.print_help(sys.stderr)
         return 1
 
+    if args.mad_threshold <= 0:
+        print(
+            f"error: --mad-threshold must be a positive number, got {args.mad_threshold}",
+            file=sys.stderr,
+        )
+        return 1
+
     pricing = None
     try:
         if args.pricing:
@@ -142,7 +166,7 @@ def main(argv: Optional[List[str]] = None) -> int:
 
     try:
         events, warnings = load_events(args.logfile)
-    except OSError as exc:
+    except (OSError, ValueError) as exc:
         print(f"error: cannot read log file: {exc}", file=sys.stderr)
         return 1
 
