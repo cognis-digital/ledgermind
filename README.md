@@ -20,6 +20,66 @@ pip install cognis-ledgermind
 ledgermind scan .            # → prioritized findings in seconds
 ```
 
+
+<!-- cognis:example:start -->
+## 🔎 Example output
+
+Real, reproducible output from the tool — runs offline:
+
+```console
+$ ledgermind-emit --version
+ledgermind 0.1.0
+```
+
+```console
+$ ledgermind-emit --help
+usage: ledgermind [-h] [--version] {audit} ...
+
+Local LLM cost & token forensics with anomaly detection.
+
+positional arguments:
+  {audit}
+    audit     Audit an LLM request log (JSONL or JSON array).
+
+options:
+  -h, --help  show this help message and exit
+  --version   show program's version number and exit
+```
+
+> Blocks above are real `ledgermind` output — reproduce them from a clone.
+
+**Sample result format** _(illustrative values — run on your own data for real findings):_
+
+```
+{
+"finding": {
+"id": "1234567890",
+"category": "vulnerability",
+"name": "Apache Log4j RCE",
+"description": "A remote code execution vulnerability in Apache Log4j.",
+"severity": "high",
+"created_at": "2021-12-10T14:30:00Z"
+},
+"indicators": [
+{
+"type": "ip",
+"value": "192.0.2.1"
+},
+{
+"type": "domain",
+"value": "example.com"
+}
+],
+"recommendations": [
+{
+"text": "Update Apache Log4j to version 2.16.0 or later."
+}
+]
+}
+```
+
+<!-- cognis:example:end -->
+
 ## Usage — step by step
 
 1. **Install** (Python 3.8+, stdlib only):

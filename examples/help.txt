@@ -1,0 +1,13 @@
+$ ledgermind-emit --help
+
+usage: ledgermind [-h] [--version] {audit} ...
+
+Local LLM cost & token forensics with anomaly detection.
+
+positional arguments:
+  {audit}
+    audit     Audit an LLM request log (JSONL or JSON array).
+
+options:
+  -h, --help  show this help message and exit
+  --version   show program's version number and exit
